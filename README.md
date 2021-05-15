@@ -2,6 +2,8 @@
 
 **TODO: Add description**
 
+Example code base for from the book [Concurrent Data Processing in Elixir](https://pragprog.com/titles/sgdpelixir/concurrent-data-processing-in-elixir/)
+
 ## Installation
 
 If [available in Hex](https://hex.pm/docs/publish), the package can be installed

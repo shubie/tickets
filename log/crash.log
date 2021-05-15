@@ -1,0 +1,190 @@
+2021-05-15 12:00:12 =SUPERVISOR REPORT====
+     Supervisor: {local,'Elixir.BookingsPipeline.Broadway.ProducerSupervisor'}
+     Context:    start_error
+     Reason:     {#{'__exception__' => true,'__struct__' => 'Elixir.ArgumentError',message => <<"expected :on_failure to be one of [:ack, :reject, :reject_and_requeue, :reject_and_requeue_once], got: :reject_and_queue">>},[{'Elixir.BroadwayRabbitMQ.Producer',init,1,[{file,"lib/broadway_rabbitmq/producer.ex"},{line,331}]},{'Elixir.Broadway.Topology.ProducerStage',init,1,[{file,"lib/broadway/topology/producer_stage.ex"},{line,69}]},{'Elixir.GenStage',init,1,[{file,"lib/gen_stage.ex"},{line,1722}]},{gen_server,init_it,2,[{file,"gen_server.erl"},{line,417}]},{gen_server,init_it,6,[{file,"gen_server.erl"},{line,385}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,226}]}]}
+     Offender:   [{pid,undefined},{id,'Elixir.BookingsPipeline.Broadway.Producer_0'},{mfargs,{'Elixir.Broadway.Topology.ProducerStage',start_link,[[{broadway,[{hibernate_after,15000},{batchers,[]},{context,context_not_set},{resubscribe_interval,100},{max_seconds,5},{max_restarts,3},{shutdown,30000},{name,'Elixir.BookingsPipeline'},{producer,[{hibernate_after,15000},{transformer,nil},{concurrency,1},{module,{'Elixir.BroadwayRabbitMQ.Producer',[{queue,<<"bookings_queue">>},{declare,[{durabe,true}]},{on_failure,reject_and_queue}]}}]},{processors,[{default,[{hibernate_after,15000},{max_demand,10},{concurrency,32}]}]}]},{dispatcher,'Elixir.GenStage.DemandDispatcher'},{hibernate_after,15000},{transformer,nil},{concurrency,1},{module,{'Elixir.BroadwayRabbitMQ.Producer',[{queue,<<"bookings_queue">>},{declare,[{durabe,true}]},{on_failure,reject_and_queue}]}}],0,[{name,'Elixir.BookingsPipeline.Broadway.Producer_0'},{hibernate_after,15000}]]}},{restart_type,permanent},{shutdown,30000},{child_type,worker}]
+
+2021-05-15 12:00:12 =CRASH REPORT====
+  crasher:
+    initial call: Elixir.GenStage:init/1
+    pid: <0.873.0>
+    registered_name: []
+    exception error: {#{'__exception__' => true,'__struct__' => 'Elixir.ArgumentError',message => <<"expected :on_failure to be one of [:ack, :reject, :reject_and_requeue, :reject_and_requeue_once], got: :reject_and_queue">>},[{'Elixir.BroadwayRabbitMQ.Producer',init,1,[{file,"lib/broadway_rabbitmq/producer.ex"},{line,331}]},{'Elixir.Broadway.Topology.ProducerStage',init,1,[{file,"lib/broadway/topology/producer_stage.ex"},{line,69}]},{'Elixir.GenStage',init,1,[{file,"lib/gen_stage.ex"},{line,1722}]},{gen_server,init_it,2,[{file,"gen_server.erl"},{line,417}]},{gen_server,init_it,6,[{file,"gen_server.erl"},{line,385}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,226}]}]}
+    ancestors: ['Elixir.BookingsPipeline.Broadway.ProducerSupervisor','Elixir.BookingsPipeline.Broadway.Supervisor','Elixir.BookingsPipeline','Elixir.Tickets.Supervisor',<0.868.0>]
+    message_queue_len: 1
+    messages: [{'EXIT',<0.872.0>,{shutdown,{failed_to_start_child,'Elixir.BookingsPipeline.Broadway.Producer_0',{#{'__exception__' => true,'__struct__' => 'Elixir.ArgumentError',message => <<"expected :on_failure to be one of [:ack, :reject, :reject_and_requeue, :reject_and_requeue_once], got: :reject_and_queue">>},[{'Elixir.BroadwayRabbitMQ.Producer',init,1,[{file,"lib/broadway_rabbitmq/producer.ex"},{line,331}]},{'Elixir.Broadway.Topology.ProducerStage',init,1,[{file,"lib/broadway/topology/producer_stage.ex"},{line,69}]},{'Elixir.GenStage',init,1,[{file,"lib/gen_stage.ex"},{line,1722}]},{gen_server,init_it,2,[{file,"gen_server.erl"},{line,417}]},{gen_server,init_it,6,[{file,"gen_server.erl"},{line,385}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,226}]}]}}}}]
+    links: []
+    dictionary: []
+    trap_exit: true
+    status: running
+    heap_size: 1598
+    stack_size: 28
+    reductions: 4930
+  neighbours:
+2021-05-15 12:00:12 =SUPERVISOR REPORT====
+     Supervisor: {local,'Elixir.BookingsPipeline.Broadway.Supervisor'}
+     Context:    start_error
+     Reason:     {shutdown,{failed_to_start_child,'Elixir.BookingsPipeline.Broadway.Producer_0',{#{'__exception__' => true,'__struct__' => 'Elixir.ArgumentError',message => <<"expected :on_failure to be one of [:ack, :reject, :reject_and_requeue, :reject_and_requeue_once], got: :reject_and_queue">>},[{'Elixir.BroadwayRabbitMQ.Producer',init,1,[{file,"lib/broadway_rabbitmq/producer.ex"},{line,331}]},{'Elixir.Broadway.Topology.ProducerStage',init,1,[{file,"lib/broadway/topology/producer_stage.ex"},{line,69}]},{'Elixir.GenStage',init,1,[{file,"lib/gen_stage.ex"},{line,1722}]},{gen_server,init_it,2,[{file,"gen_server.erl"},{line,417}]},{gen_server,init_it,6,[{file,"gen_server.erl"},{line,385}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,226}]}]}}}
+     Offender:   [{pid,undefined},{id,#Ref<0.486647167.3645898754.215512>},{mfargs,{'Elixir.Supervisor',start_link,[[#{id => 'Elixir.BookingsPipeline.Broadway.Producer_0',shutdown => 30000,start => {'Elixir.Broadway.Topology.ProducerStage',start_link,[[{broadway,[{hibernate_after,15000},{batchers,[]},{context,context_not_set},{resubscribe_interval,100},{max_seconds,5},{max_restarts,3},{shutdown,30000},{name,'Elixir.BookingsPipeline'},{producer,[{hibernate_after,15000},{transformer,nil},{concurrency,1},{module,{'Elixir.BroadwayRabbitMQ.Producer',[{queue,<<"bookings_queue">>},{declare,[{durabe,true}]},{on_failure,reject_and_queue}]}}]},{processors,[{default,[{hibernate_after,15000},{max_demand,10},{concurrency,32}]}]}]},{dispatcher,'Elixir.GenStage.DemandDispatcher'},{hibernate_after,15000},{transformer,nil},{concurrency,1},{module,{'Elixir.BroadwayRabbitMQ.Producer',[{queue,<<"bookings_queue">>},{declare,[{durabe,true}]},{on_failure,reject_and_queue}]}}],0,[{name,'Elixir.BookingsPipeline.Broadway.Producer_0'},{hibernate_after,15000}]]}}],[{name,'Elixir.BookingsPipeline.Broadway.ProducerSupervisor'},{strategy,one_for_one},{max_restarts,2},{max_seconds,1}]]}},{restart_type,permanent},{shutdown,infinity},{child_type,supervisor}]
+
+2021-05-15 12:00:12 =SUPERVISOR REPORT====
+     Supervisor: {local,'Elixir.Tickets.Supervisor'}
+     Context:    start_error
+     Reason:     {{badmatch,{error,{shutdown,{failed_to_start_child,#Ref<0.486647167.3645898754.215512>,{shutdown,{failed_to_start_child,'Elixir.BookingsPipeline.Broadway.Producer_0',{#{'__exception__' => true,'__struct__' => 'Elixir.ArgumentError',message => <<"expected :on_failure to be one of [:ack, :reject, :reject_and_requeue, :reject_and_requeue_once], got: :reject_and_queue">>},[{'Elixir.BroadwayRabbitMQ.Producer',init,1,[{file,"lib/broadway_rabbitmq/producer.ex"},{line,331}]},{'Elixir.Broadway.Topology.ProducerStage',init,1,[{file,"lib/broadway/topology/producer_stage.ex"},{line,69}]},{'Elixir.GenStage',init,1,[{file,"lib/gen_stage.ex"},{line,1722}]},{gen_server,init_it,2,[{file,"gen_server.erl"},{line,417}]},{gen_server,init_it,6,[{file,"gen_server.erl"},{line,385}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,226}]}]}}}}}}},[{'Elixir.Broadway.Topology',init,1,[{file,"lib/broadway/topology.ex"},{line,37}]},{gen_server,init_it,2,[{file,"gen_server.erl"},{line,417}]},{gen_server,init_it,6,[{file,"gen_server.erl"},{line,385}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,226}]}]}
+     Offender:   [{pid,undefined},{id,'Elixir.BookingsPipeline'},{mfargs,{'Elixir.BookingsPipeline',start_link,[[]]}},{restart_type,permanent},{shutdown,infinity},{child_type,worker}]
+
+2021-05-15 12:00:12 =CRASH REPORT====
+  crasher:
+    initial call: Elixir.Broadway.Topology:init/1
+    pid: <0.870.0>
+    registered_name: []
+    exception error: {{badmatch,{error,{shutdown,{failed_to_start_child,#Ref<0.486647167.3645898754.215512>,{shutdown,{failed_to_start_child,'Elixir.BookingsPipeline.Broadway.Producer_0',{#{'__exception__' => true,'__struct__' => 'Elixir.ArgumentError',message => <<"expected :on_failure to be one of [:ack, :reject, :reject_and_requeue, :reject_and_requeue_once], got: :reject_and_queue">>},[{'Elixir.BroadwayRabbitMQ.Producer',init,1,[{file,"lib/broadway_rabbitmq/producer.ex"},{line,331}]},{'Elixir.Broadway.Topology.ProducerStage',init,1,[{file,"lib/broadway/topology/producer_stage.ex"},{line,69}]},{'Elixir.GenStage',init,1,[{file,"lib/gen_stage.ex"},{line,1722}]},{gen_server,init_it,2,[{file,"gen_server.erl"},{line,417}]},{gen_server,init_it,6,[{file,"gen_server.erl"},{line,385}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,226}]}]}}}}}}},[{'Elixir.Broadway.Topology',init,1,[{file,"lib/broadway/topology.ex"},{line,37}]},{gen_server,init_it,2,[{file,"gen_server.erl"},{line,417}]},{gen_server,init_it,6,[{file,"gen_server.erl"},{line,385}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,226}]}]}
+    ancestors: ['Elixir.Tickets.Supervisor',<0.868.0>]
+    message_queue_len: 1
+    messages: [{'EXIT',<0.871.0>,{shutdown,{failed_to_start_child,#Ref<0.486647167.3645898754.215512>,{shutdown,{failed_to_start_child,'Elixir.BookingsPipeline.Broadway.Producer_0',{#{'__exception__' => true,'__struct__' => 'Elixir.ArgumentError',message => <<"expected :on_failure to be one of [:ack, :reject, :reject_and_requeue, :reject_and_requeue_once], got: :reject_and_queue">>},[{'Elixir.BroadwayRabbitMQ.Producer',init,1,[{file,"lib/broadway_rabbitmq/producer.ex"},{line,331}]},{'Elixir.Broadway.Topology.ProducerStage',init,1,[{file,"lib/broadway/topology/producer_stage.ex"},{line,69}]},{'Elixir.GenStage',init,1,[{file,"lib/gen_stage.ex"},{line,1722}]},{gen_server,init_it,2,[{file,"gen_server.erl"},{line,417}]},{gen_server,init_it,6,[{file,"gen_server.erl"},{line,385}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,226}]}]}}}}}}]
+    links: [<0.869.0>]
+    dictionary: []
+    trap_exit: true
+    status: running
+    heap_size: 1598
+    stack_size: 28
+    reductions: 2953
+  neighbours:
+2021-05-15 12:04:02 =SUPERVISOR REPORT====
+     Supervisor: {local,'Elixir.BookingsPipeline.Broadway.ProducerSupervisor'}
+     Context:    start_error
+     Reason:     {#{'__exception__' => true,'__struct__' => 'Elixir.ArgumentError',message => <<"expected :on_failure to be one of [:ack, :reject, :reject_and_requeue, :reject_and_requeue_once], got: :reject_and_queue">>},[{'Elixir.BroadwayRabbitMQ.Producer',init,1,[{file,"lib/broadway_rabbitmq/producer.ex"},{line,331}]},{'Elixir.Broadway.Topology.ProducerStage',init,1,[{file,"lib/broadway/topology/producer_stage.ex"},{line,69}]},{'Elixir.GenStage',init,1,[{file,"lib/gen_stage.ex"},{line,1722}]},{gen_server,init_it,2,[{file,"gen_server.erl"},{line,417}]},{gen_server,init_it,6,[{file,"gen_server.erl"},{line,385}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,226}]}]}
+     Offender:   [{pid,undefined},{id,'Elixir.BookingsPipeline.Broadway.Producer_0'},{mfargs,{'Elixir.Broadway.Topology.ProducerStage',start_link,[[{broadway,[{hibernate_after,15000},{batchers,[]},{context,context_not_set},{resubscribe_interval,100},{max_seconds,5},{max_restarts,3},{shutdown,30000},{name,'Elixir.BookingsPipeline'},{producer,[{hibernate_after,15000},{transformer,nil},{concurrency,1},{module,{'Elixir.BroadwayRabbitMQ.Producer',[{queue,<<"bookings_queue">>},{declare,[{durabe,true}]},{on_failure,reject_and_queue}]}}]},{processors,[{default,[{hibernate_after,15000},{max_demand,10},{concurrency,32}]}]}]},{dispatcher,'Elixir.GenStage.DemandDispatcher'},{hibernate_after,15000},{transformer,nil},{concurrency,1},{module,{'Elixir.BroadwayRabbitMQ.Producer',[{queue,<<"bookings_queue">>},{declare,[{durabe,true}]},{on_failure,reject_and_queue}]}}],0,[{name,'Elixir.BookingsPipeline.Broadway.Producer_0'},{hibernate_after,15000}]]}},{restart_type,permanent},{shutdown,30000},{child_type,worker}]
+
+2021-05-15 12:04:02 =CRASH REPORT====
+  crasher:
+    initial call: Elixir.GenStage:init/1
+    pid: <0.304.0>
+    registered_name: []
+    exception error: {#{'__exception__' => true,'__struct__' => 'Elixir.ArgumentError',message => <<"expected :on_failure to be one of [:ack, :reject, :reject_and_requeue, :reject_and_requeue_once], got: :reject_and_queue">>},[{'Elixir.BroadwayRabbitMQ.Producer',init,1,[{file,"lib/broadway_rabbitmq/producer.ex"},{line,331}]},{'Elixir.Broadway.Topology.ProducerStage',init,1,[{file,"lib/broadway/topology/producer_stage.ex"},{line,69}]},{'Elixir.GenStage',init,1,[{file,"lib/gen_stage.ex"},{line,1722}]},{gen_server,init_it,2,[{file,"gen_server.erl"},{line,417}]},{gen_server,init_it,6,[{file,"gen_server.erl"},{line,385}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,226}]}]}
+    ancestors: ['Elixir.BookingsPipeline.Broadway.ProducerSupervisor','Elixir.BookingsPipeline.Broadway.Supervisor','Elixir.BookingsPipeline','Elixir.Tickets.Supervisor',<0.299.0>]
+    message_queue_len: 1
+    messages: [{'EXIT',<0.303.0>,{shutdown,{failed_to_start_child,'Elixir.BookingsPipeline.Broadway.Producer_0',{#{'__exception__' => true,'__struct__' => 'Elixir.ArgumentError',message => <<"expected :on_failure to be one of [:ack, :reject, :reject_and_requeue, :reject_and_requeue_once], got: :reject_and_queue">>},[{'Elixir.BroadwayRabbitMQ.Producer',init,1,[{file,"lib/broadway_rabbitmq/producer.ex"},{line,331}]},{'Elixir.Broadway.Topology.ProducerStage',init,1,[{file,"lib/broadway/topology/producer_stage.ex"},{line,69}]},{'Elixir.GenStage',init,1,[{file,"lib/gen_stage.ex"},{line,1722}]},{gen_server,init_it,2,[{file,"gen_server.erl"},{line,417}]},{gen_server,init_it,6,[{file,"gen_server.erl"},{line,385}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,226}]}]}}}}]
+    links: []
+    dictionary: []
+    trap_exit: true
+    status: running
+    heap_size: 1598
+    stack_size: 28
+    reductions: 5030
+  neighbours:
+2021-05-15 12:04:02 =SUPERVISOR REPORT====
+     Supervisor: {local,'Elixir.BookingsPipeline.Broadway.Supervisor'}
+     Context:    start_error
+     Reason:     {shutdown,{failed_to_start_child,'Elixir.BookingsPipeline.Broadway.Producer_0',{#{'__exception__' => true,'__struct__' => 'Elixir.ArgumentError',message => <<"expected :on_failure to be one of [:ack, :reject, :reject_and_requeue, :reject_and_requeue_once], got: :reject_and_queue">>},[{'Elixir.BroadwayRabbitMQ.Producer',init,1,[{file,"lib/broadway_rabbitmq/producer.ex"},{line,331}]},{'Elixir.Broadway.Topology.ProducerStage',init,1,[{file,"lib/broadway/topology/producer_stage.ex"},{line,69}]},{'Elixir.GenStage',init,1,[{file,"lib/gen_stage.ex"},{line,1722}]},{gen_server,init_it,2,[{file,"gen_server.erl"},{line,417}]},{gen_server,init_it,6,[{file,"gen_server.erl"},{line,385}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,226}]}]}}}
+     Offender:   [{pid,undefined},{id,#Ref<0.447818123.4184080385.36420>},{mfargs,{'Elixir.Supervisor',start_link,[[#{id => 'Elixir.BookingsPipeline.Broadway.Producer_0',shutdown => 30000,start => {'Elixir.Broadway.Topology.ProducerStage',start_link,[[{broadway,[{hibernate_after,15000},{batchers,[]},{context,context_not_set},{resubscribe_interval,100},{max_seconds,5},{max_restarts,3},{shutdown,30000},{name,'Elixir.BookingsPipeline'},{producer,[{hibernate_after,15000},{transformer,nil},{concurrency,1},{module,{'Elixir.BroadwayRabbitMQ.Producer',[{queue,<<"bookings_queue">>},{declare,[{durabe,true}]},{on_failure,reject_and_queue}]}}]},{processors,[{default,[{hibernate_after,15000},{max_demand,10},{concurrency,32}]}]}]},{dispatcher,'Elixir.GenStage.DemandDispatcher'},{hibernate_after,15000},{transformer,nil},{concurrency,1},{module,{'Elixir.BroadwayRabbitMQ.Producer',[{queue,<<"bookings_queue">>},{declare,[{durabe,true}]},{on_failure,reject_and_queue}]}}],0,[{name,'Elixir.BookingsPipeline.Broadway.Producer_0'},{hibernate_after,15000}]]}}],[{name,'Elixir.BookingsPipeline.Broadway.ProducerSupervisor'},{strategy,one_for_one},{max_restarts,2},{max_seconds,1}]]}},{restart_type,permanent},{shutdown,infinity},{child_type,supervisor}]
+
+2021-05-15 12:04:02 =CRASH REPORT====
+  crasher:
+    initial call: Elixir.Broadway.Topology:init/1
+    pid: <0.301.0>
+    registered_name: []
+    exception error: {{badmatch,{error,{shutdown,{failed_to_start_child,#Ref<0.447818123.4184080385.36420>,{shutdown,{failed_to_start_child,'Elixir.BookingsPipeline.Broadway.Producer_0',{#{'__exception__' => true,'__struct__' => 'Elixir.ArgumentError',message => <<"expected :on_failure to be one of [:ack, :reject, :reject_and_requeue, :reject_and_requeue_once], got: :reject_and_queue">>},[{'Elixir.BroadwayRabbitMQ.Producer',init,1,[{file,"lib/broadway_rabbitmq/producer.ex"},{line,331}]},{'Elixir.Broadway.Topology.ProducerStage',init,1,[{file,"lib/broadway/topology/producer_stage.ex"},{line,69}]},{'Elixir.GenStage',init,1,[{file,"lib/gen_stage.ex"},{line,1722}]},{gen_server,init_it,2,[{file,"gen_server.erl"},{line,417}]},{gen_server,init_it,6,[{file,"gen_server.erl"},{line,385}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,226}]}]}}}}}}},[{'Elixir.Broadway.Topology',init,1,[{file,"lib/broadway/topology.ex"},{line,37}]},{gen_server,init_it,2,[{file,"gen_server.erl"},{line,417}]},{gen_server,init_it,6,[{file,"gen_server.erl"},{line,385}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,226}]}]}
+    ancestors: ['Elixir.Tickets.Supervisor',<0.299.0>]
+    message_queue_len: 1
+    messages: [{'EXIT',<0.302.0>,{shutdown,{failed_to_start_child,#Ref<0.447818123.4184080385.36420>,{shutdown,{failed_to_start_child,'Elixir.BookingsPipeline.Broadway.Producer_0',{#{'__exception__' => true,'__struct__' => 'Elixir.ArgumentError',message => <<"expected :on_failure to be one of [:ack, :reject, :reject_and_requeue, :reject_and_requeue_once], got: :reject_and_queue">>},[{'Elixir.BroadwayRabbitMQ.Producer',init,1,[{file,"lib/broadway_rabbitmq/producer.ex"},{line,331}]},{'Elixir.Broadway.Topology.ProducerStage',init,1,[{file,"lib/broadway/topology/producer_stage.ex"},{line,69}]},{'Elixir.GenStage',init,1,[{file,"lib/gen_stage.ex"},{line,1722}]},{gen_server,init_it,2,[{file,"gen_server.erl"},{line,417}]},{gen_server,init_it,6,[{file,"gen_server.erl"},{line,385}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,226}]}]}}}}}}]
+    links: [<0.300.0>]
+    dictionary: []
+    trap_exit: true
+    status: running
+    heap_size: 1598
+    stack_size: 28
+    reductions: 2833
+  neighbours:
+2021-05-15 12:04:02 =SUPERVISOR REPORT====
+     Supervisor: {local,'Elixir.Tickets.Supervisor'}
+     Context:    start_error
+     Reason:     {{badmatch,{error,{shutdown,{failed_to_start_child,#Ref<0.447818123.4184080385.36420>,{shutdown,{failed_to_start_child,'Elixir.BookingsPipeline.Broadway.Producer_0',{#{'__exception__' => true,'__struct__' => 'Elixir.ArgumentError',message => <<"expected :on_failure to be one of [:ack, :reject, :reject_and_requeue, :reject_and_requeue_once], got: :reject_and_queue">>},[{'Elixir.BroadwayRabbitMQ.Producer',init,1,[{file,"lib/broadway_rabbitmq/producer.ex"},{line,331}]},{'Elixir.Broadway.Topology.ProducerStage',init,1,[{file,"lib/broadway/topology/producer_stage.ex"},{line,69}]},{'Elixir.GenStage',init,1,[{file,"lib/gen_stage.ex"},{line,1722}]},{gen_server,init_it,2,[{file,"gen_server.erl"},{line,417}]},{gen_server,init_it,6,[{file,"gen_server.erl"},{line,385}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,226}]}]}}}}}}},[{'Elixir.Broadway.Topology',init,1,[{file,"lib/broadway/topology.ex"},{line,37}]},{gen_server,init_it,2,[{file,"gen_server.erl"},{line,417}]},{gen_server,init_it,6,[{file,"gen_server.erl"},{line,385}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,226}]}]}
+     Offender:   [{pid,undefined},{id,'Elixir.BookingsPipeline'},{mfargs,{'Elixir.BookingsPipeline',start_link,[[]]}},{restart_type,permanent},{shutdown,infinity},{child_type,worker}]
+
+2021-05-15 12:04:02 =CRASH REPORT====
+  crasher:
+    initial call: application_master:init/4
+    pid: <0.298.0>
+    registered_name: []
+    exception exit: {{{shutdown,{failed_to_start_child,'Elixir.BookingsPipeline',{{badmatch,{error,{shutdown,{failed_to_start_child,#Ref<0.447818123.4184080385.36420>,{shutdown,{failed_to_start_child,'Elixir.BookingsPipeline.Broadway.Producer_0',{#{'__exception__' => true,'__struct__' => 'Elixir.ArgumentError',message => <<"expected :on_failure to be one of [:ack, :reject, :reject_and_requeue, :reject_and_requeue_once], got: :reject_and_queue">>},[{'Elixir.BroadwayRabbitMQ.Producer',init,1,[{file,"lib/broadway_rabbitmq/producer.ex"},{line,331}]},{'Elixir.Broadway.Topology.ProducerStage',init,1,[{file,"lib/broadway/topology/producer_stage.ex"},{line,69}]},{'Elixir.GenStage',init,1,[{file,"lib/gen_stage.ex"},{line,1722}]},{gen_server,init_it,2,[{file,"gen_server.erl"},{line,417}]},{gen_server,init_it,6,[{file,"gen_server.erl"},{line,385}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,226}]}]}}}}}}},[{'Elixir.Broadway.Topology',init,1,[{file,"lib/broadway/topology.ex"},{line,37}]},{gen_server,init_it,2,[{file,"gen_server.erl"},{line,417}]},{gen_server,init_it,6,[{file,"gen_server.erl"},{line,385}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,226}]}]}}},{'Elixir.Tickets.Application',start,[normal,[]]}},[{application_master,init,4,[{file,"application_master.erl"},{line,138}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,226}]}]}
+    ancestors: [<0.297.0>]
+    message_queue_len: 1
+    messages: [{'EXIT',<0.299.0>,normal}]
+    links: [<0.297.0>,<0.44.0>]
+    dictionary: []
+    trap_exit: true
+    status: running
+    heap_size: 987
+    stack_size: 28
+    reductions: 259
+  neighbours:
+2021-05-15 12:05:06 =SUPERVISOR REPORT====
+     Supervisor: {local,'Elixir.BookingsPipeline.Broadway.ProducerSupervisor'}
+     Context:    start_error
+     Reason:     {#{'__exception__' => true,'__struct__' => 'Elixir.ArgumentError',message => <<"invalid options given to BroadwayRabbitMQ.AmqpClient.init/1, unknown options [:durabe], valid options are: [:durable, :auto_delete, :exclusive, :passive, :no_wait, :arguments] (in options [:declare])">>},[{'Elixir.BroadwayRabbitMQ.Producer','init_client!',2,[{file,"lib/broadway_rabbitmq/producer.ex"},{line,632}]},{'Elixir.BroadwayRabbitMQ.Producer',init,1,[{file,"lib/broadway_rabbitmq/producer.ex"},{line,340}]},{'Elixir.Broadway.Topology.ProducerStage',init,1,[{file,"lib/broadway/topology/producer_stage.ex"},{line,69}]},{'Elixir.GenStage',init,1,[{file,"lib/gen_stage.ex"},{line,1722}]},{gen_server,init_it,2,[{file,"gen_server.erl"},{line,417}]},{gen_server,init_it,6,[{file,"gen_server.erl"},{line,385}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,226}]}]}
+     Offender:   [{pid,undefined},{id,'Elixir.BookingsPipeline.Broadway.Producer_0'},{mfargs,{'Elixir.Broadway.Topology.ProducerStage',start_link,[[{broadway,[{hibernate_after,15000},{batchers,[]},{context,context_not_set},{resubscribe_interval,100},{max_seconds,5},{max_restarts,3},{shutdown,30000},{name,'Elixir.BookingsPipeline'},{producer,[{hibernate_after,15000},{transformer,nil},{concurrency,1},{module,{'Elixir.BroadwayRabbitMQ.Producer',[{queue,<<"bookings_queue">>},{declare,[{durabe,true}]},{on_failure,reject_and_requeue}]}}]},{processors,[{default,[{hibernate_after,15000},{max_demand,10},{concurrency,32}]}]}]},{dispatcher,'Elixir.GenStage.DemandDispatcher'},{hibernate_after,15000},{transformer,nil},{concurrency,1},{module,{'Elixir.BroadwayRabbitMQ.Producer',[{queue,<<"bookings_queue">>},{declare,[{durabe,true}]},{on_failure,reject_and_requeue}]}}],0,[{name,'Elixir.BookingsPipeline.Broadway.Producer_0'},{hibernate_after,15000}]]}},{restart_type,permanent},{shutdown,30000},{child_type,worker}]
+
+2021-05-15 12:05:06 =CRASH REPORT====
+  crasher:
+    initial call: Elixir.GenStage:init/1
+    pid: <0.305.0>
+    registered_name: []
+    exception error: {#{'__exception__' => true,'__struct__' => 'Elixir.ArgumentError',message => <<"invalid options given to BroadwayRabbitMQ.AmqpClient.init/1, unknown options [:durabe], valid options are: [:durable, :auto_delete, :exclusive, :passive, :no_wait, :arguments] (in options [:declare])">>},[{'Elixir.BroadwayRabbitMQ.Producer','init_client!',2,[{file,"lib/broadway_rabbitmq/producer.ex"},{line,632}]},{'Elixir.BroadwayRabbitMQ.Producer',init,1,[{file,"lib/broadway_rabbitmq/producer.ex"},{line,340}]},{'Elixir.Broadway.Topology.ProducerStage',init,1,[{file,"lib/broadway/topology/producer_stage.ex"},{line,69}]},{'Elixir.GenStage',init,1,[{file,"lib/gen_stage.ex"},{line,1722}]},{gen_server,init_it,2,[{file,"gen_server.erl"},{line,417}]},{gen_server,init_it,6,[{file,"gen_server.erl"},{line,385}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,226}]}]}
+    ancestors: ['Elixir.BookingsPipeline.Broadway.ProducerSupervisor','Elixir.BookingsPipeline.Broadway.Supervisor','Elixir.BookingsPipeline','Elixir.Tickets.Supervisor',<0.300.0>]
+    message_queue_len: 1
+    messages: [{'EXIT',<0.304.0>,{shutdown,{failed_to_start_child,'Elixir.BookingsPipeline.Broadway.Producer_0',{#{'__exception__' => true,'__struct__' => 'Elixir.ArgumentError',message => <<"invalid options given to BroadwayRabbitMQ.AmqpClient.init/1, unknown options [:durabe], valid options are: [:durable, :auto_delete, :exclusive, :passive, :no_wait, :arguments] (in options [:declare])">>},[{'Elixir.BroadwayRabbitMQ.Producer','init_client!',2,[{file,"lib/broadway_rabbitmq/producer.ex"},{line,632}]},{'Elixir.BroadwayRabbitMQ.Producer',init,1,[{file,"lib/broadway_rabbitmq/producer.ex"},{line,340}]},{'Elixir.Broadway.Topology.ProducerStage',init,1,[{file,"lib/broadway/topology/producer_stage.ex"},{line,69}]},{'Elixir.GenStage',init,1,[{file,"lib/gen_stage.ex"},{line,1722}]},{gen_server,init_it,2,[{file,"gen_server.erl"},{line,417}]},{gen_server,init_it,6,[{file,"gen_server.erl"},{line,385}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,226}]}]}}}}]
+    links: []
+    dictionary: []
+    trap_exit: true
+    status: running
+    heap_size: 2586
+    stack_size: 28
+    reductions: 22534
+  neighbours:
+2021-05-15 12:05:06 =SUPERVISOR REPORT====
+     Supervisor: {local,'Elixir.BookingsPipeline.Broadway.Supervisor'}
+     Context:    start_error
+     Reason:     {shutdown,{failed_to_start_child,'Elixir.BookingsPipeline.Broadway.Producer_0',{#{'__exception__' => true,'__struct__' => 'Elixir.ArgumentError',message => <<"invalid options given to BroadwayRabbitMQ.AmqpClient.init/1, unknown options [:durabe], valid options are: [:durable, :auto_delete, :exclusive, :passive, :no_wait, :arguments] (in options [:declare])">>},[{'Elixir.BroadwayRabbitMQ.Producer','init_client!',2,[{file,"lib/broadway_rabbitmq/producer.ex"},{line,632}]},{'Elixir.BroadwayRabbitMQ.Producer',init,1,[{file,"lib/broadway_rabbitmq/producer.ex"},{line,340}]},{'Elixir.Broadway.Topology.ProducerStage',init,1,[{file,"lib/broadway/topology/producer_stage.ex"},{line,69}]},{'Elixir.GenStage',init,1,[{file,"lib/gen_stage.ex"},{line,1722}]},{gen_server,init_it,2,[{file,"gen_server.erl"},{line,417}]},{gen_server,init_it,6,[{file,"gen_server.erl"},{line,385}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,226}]}]}}}
+     Offender:   [{pid,undefined},{id,#Ref<0.2451694960.4184080389.247940>},{mfargs,{'Elixir.Supervisor',start_link,[[#{id => 'Elixir.BookingsPipeline.Broadway.Producer_0',shutdown => 30000,start => {'Elixir.Broadway.Topology.ProducerStage',start_link,[[{broadway,[{hibernate_after,15000},{batchers,[]},{context,context_not_set},{resubscribe_interval,100},{max_seconds,5},{max_restarts,3},{shutdown,30000},{name,'Elixir.BookingsPipeline'},{producer,[{hibernate_after,15000},{transformer,nil},{concurrency,1},{module,{'Elixir.BroadwayRabbitMQ.Producer',[{queue,<<"bookings_queue">>},{declare,[{durabe,true}]},{on_failure,reject_and_requeue}]}}]},{processors,[{default,[{hibernate_after,15000},{max_demand,10},{concurrency,32}]}]}]},{dispatcher,'Elixir.GenStage.DemandDispatcher'},{hibernate_after,15000},{transformer,nil},{concurrency,1},{module,{'Elixir.BroadwayRabbitMQ.Producer',[{queue,<<"bookings_queue">>},{declare,[{durabe,true}]},{on_failure,reject_and_requeue}]}}],0,[{name,'Elixir.BookingsPipeline.Broadway.Producer_0'},{hibernate_after,15000}]]}}],[{name,'Elixir.BookingsPipeline.Broadway.ProducerSupervisor'},{strategy,one_for_one},{max_restarts,2},{max_seconds,1}]]}},{restart_type,permanent},{shutdown,infinity},{child_type,supervisor}]
+
+2021-05-15 12:05:06 =CRASH REPORT====
+  crasher:
+    initial call: Elixir.Broadway.Topology:init/1
+    pid: <0.302.0>
+    registered_name: []
+    exception error: {{badmatch,{error,{shutdown,{failed_to_start_child,#Ref<0.2451694960.4184080389.247940>,{shutdown,{failed_to_start_child,'Elixir.BookingsPipeline.Broadway.Producer_0',{#{'__exception__' => true,'__struct__' => 'Elixir.ArgumentError',message => <<"invalid options given to BroadwayRabbitMQ.AmqpClient.init/1, unknown options [:durabe], valid options are: [:durable, :auto_delete, :exclusive, :passive, :no_wait, :arguments] (in options [:declare])">>},[{'Elixir.BroadwayRabbitMQ.Producer','init_client!',2,[{file,"lib/broadway_rabbitmq/producer.ex"},{line,632}]},{'Elixir.BroadwayRabbitMQ.Producer',init,1,[{file,"lib/broadway_rabbitmq/producer.ex"},{line,340}]},{'Elixir.Broadway.Topology.ProducerStage',init,1,[{file,"lib/broadway/topology/producer_stage.ex"},{line,69}]},{'Elixir.GenStage',init,1,[{file,"lib/gen_stage.ex"},{line,1722}]},{gen_server,init_it,2,[{file,"gen_server.erl"},{line,417}]},{gen_server,init_it,6,[{file,"gen_server.erl"},{line,385}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,226}]}]}}}}}}},[{'Elixir.Broadway.Topology',init,1,[{file,"lib/broadway/topology.ex"},{line,37}]},{gen_server,init_it,2,[{file,"gen_server.erl"},{line,417}]},{gen_server,init_it,6,[{file,"gen_server.erl"},{line,385}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,226}]}]}
+    ancestors: ['Elixir.Tickets.Supervisor',<0.300.0>]
+    message_queue_len: 1
+    messages: [{'EXIT',<0.303.0>,{shutdown,{failed_to_start_child,#Ref<0.2451694960.4184080389.247940>,{shutdown,{failed_to_start_child,'Elixir.BookingsPipeline.Broadway.Producer_0',{#{'__exception__' => true,'__struct__' => 'Elixir.ArgumentError',message => <<"invalid options given to BroadwayRabbitMQ.AmqpClient.init/1, unknown options [:durabe], valid options are: [:durable, :auto_delete, :exclusive, :passive, :no_wait, :arguments] (in options [:declare])">>},[{'Elixir.BroadwayRabbitMQ.Producer','init_client!',2,[{file,"lib/broadway_rabbitmq/producer.ex"},{line,632}]},{'Elixir.BroadwayRabbitMQ.Producer',init,1,[{file,"lib/broadway_rabbitmq/producer.ex"},{line,340}]},{'Elixir.Broadway.Topology.ProducerStage',init,1,[{file,"lib/broadway/topology/producer_stage.ex"},{line,69}]},{'Elixir.GenStage',init,1,[{file,"lib/gen_stage.ex"},{line,1722}]},{gen_server,init_it,2,[{file,"gen_server.erl"},{line,417}]},{gen_server,init_it,6,[{file,"gen_server.erl"},{line,385}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,226}]}]}}}}}}]
+    links: [<0.301.0>]
+    dictionary: []
+    trap_exit: true
+    status: running
+    heap_size: 1598
+    stack_size: 28
+    reductions: 2792
+  neighbours:
+2021-05-15 12:05:06 =SUPERVISOR REPORT====
+     Supervisor: {local,'Elixir.Tickets.Supervisor'}
+     Context:    start_error
+     Reason:     {{badmatch,{error,{shutdown,{failed_to_start_child,#Ref<0.2451694960.4184080389.247940>,{shutdown,{failed_to_start_child,'Elixir.BookingsPipeline.Broadway.Producer_0',{#{'__exception__' => true,'__struct__' => 'Elixir.ArgumentError',message => <<"invalid options given to BroadwayRabbitMQ.AmqpClient.init/1, unknown options [:durabe], valid options are: [:durable, :auto_delete, :exclusive, :passive, :no_wait, :arguments] (in options [:declare])">>},[{'Elixir.BroadwayRabbitMQ.Producer','init_client!',2,[{file,"lib/broadway_rabbitmq/producer.ex"},{line,632}]},{'Elixir.BroadwayRabbitMQ.Producer',init,1,[{file,"lib/broadway_rabbitmq/producer.ex"},{line,340}]},{'Elixir.Broadway.Topology.ProducerStage',init,1,[{file,"lib/broadway/topology/producer_stage.ex"},{line,69}]},{'Elixir.GenStage',init,1,[{file,"lib/gen_stage.ex"},{line,1722}]},{gen_server,init_it,2,[{file,"gen_server.erl"},{line,417}]},{gen_server,init_it,6,[{file,"gen_server.erl"},{line,385}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,226}]}]}}}}}}},[{'Elixir.Broadway.Topology',init,1,[{file,"lib/broadway/topology.ex"},{line,37}]},{gen_server,init_it,2,[{file,"gen_server.erl"},{line,417}]},{gen_server,init_it,6,[{file,"gen_server.erl"},{line,385}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,226}]}]}
+     Offender:   [{pid,undefined},{id,'Elixir.BookingsPipeline'},{mfargs,{'Elixir.BookingsPipeline',start_link,[[]]}},{restart_type,permanent},{shutdown,infinity},{child_type,worker}]
+
+2021-05-15 12:05:06 =CRASH REPORT====
+  crasher:
+    initial call: application_master:init/4
+    pid: <0.299.0>
+    registered_name: []
+    exception exit: {{{shutdown,{failed_to_start_child,'Elixir.BookingsPipeline',{{badmatch,{error,{shutdown,{failed_to_start_child,#Ref<0.2451694960.4184080389.247940>,{shutdown,{failed_to_start_child,'Elixir.BookingsPipeline.Broadway.Producer_0',{#{'__exception__' => true,'__struct__' => 'Elixir.ArgumentError',message => <<"invalid options given to BroadwayRabbitMQ.AmqpClient.init/1, unknown options [:durabe], valid options are: [:durable, :auto_delete, :exclusive, :passive, :no_wait, :arguments] (in options [:declare])">>},[{'Elixir.BroadwayRabbitMQ.Producer','init_client!',2,[{file,"lib/broadway_rabbitmq/producer.ex"},{line,632}]},{'Elixir.BroadwayRabbitMQ.Producer',init,1,[{file,"lib/broadway_rabbitmq/producer.ex"},{line,340}]},{'Elixir.Broadway.Topology.ProducerStage',init,1,[{file,"lib/broadway/topology/producer_stage.ex"},{line,69}]},{'Elixir.GenStage',init,1,[{file,"lib/gen_stage.ex"},{line,1722}]},{gen_server,init_it,2,[{file,"gen_server.erl"},{line,417}]},{gen_server,init_it,6,[{file,"gen_server.erl"},{line,385}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,226}]}]}}}}}}},[{'Elixir.Broadway.Topology',init,1,[{file,"lib/broadway/topology.ex"},{line,37}]},{gen_server,init_it,2,[{file,"gen_server.erl"},{line,417}]},{gen_server,init_it,6,[{file,"gen_server.erl"},{line,385}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,226}]}]}}},{'Elixir.Tickets.Application',start,[normal,[]]}},[{application_master,init,4,[{file,"application_master.erl"},{line,138}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,226}]}]}
+    ancestors: [<0.298.0>]
+    message_queue_len: 0
+    messages: []
+    links: [<0.298.0>,<0.300.0>,<0.44.0>]
+    dictionary: []
+    trap_exit: true
+    status: running
+    heap_size: 1598
+    stack_size: 28
+    reductions: 265
+  neighbours:
